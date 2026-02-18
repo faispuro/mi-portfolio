@@ -1,6 +1,6 @@
 import { motion } from "framer-motion"
 import Container from "../layout/Container"
-import { section } from "framer-motion/m"
+
 
 const Hero = () => {
   return (
