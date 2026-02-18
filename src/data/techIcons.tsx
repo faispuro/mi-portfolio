@@ -6,6 +6,9 @@ import {
   SiMongodb,
   SiExpress,
   SiPostgresql,
+  SiHtml5,
+  SiCss3,
+  SiJavascript,
 } from "react-icons/si"
 
 export const techIcons: Record<string, React.ReactNode> = {
@@ -15,4 +18,9 @@ export const techIcons: Record<string, React.ReactNode> = {
   MongoDB: <SiMongodb />,
   Express: <SiExpress />,
   SQL: <SiPostgresql />,
+
+  // ✅ nuevos
+  HTML: <SiHtml5 />,
+  CSS: <SiCss3 />,
+  JavaScript: <SiJavascript />,
 }

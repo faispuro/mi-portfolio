@@ -1,5 +1,6 @@
 import { motion } from "framer-motion"
 import Container from "../layout/Container"
+import { section } from "framer-motion/m"
 
 const Hero = () => {
   return (
@@ -60,7 +61,12 @@ const Hero = () => {
             <button className="relative px-7 py-3 bg-white text-black text-sm font-medium tracking-wide
                               transition-all duration-300
                               hover:-translate-y-0.5
-                              hover:shadow-[0_0_25px_rgba(255,255,255,0.15)]">
+                              hover:shadow-[0_0_25px_rgba(255,255,255,0.15)]"
+              onClick={() => {
+                const section = document.getElementById("proyectos")
+                section?.scrollIntoView({ behavior: "smooth" })
+              }}
+              >
               Ver proyectos
             </button>
 
@@ -69,7 +75,12 @@ const Hero = () => {
                               transition-all duration-300
                               hover:border-white
                               hover:text-white
-                              hover:-translate-y-0.5">
+                              hover:-translate-y-0.5"
+              onClick={() => {
+                const section = document.getElementById("contacto")
+                section?.scrollIntoView({ behavior: "smooth" })
+              }}
+              >
               Contactar
             </button>
           </motion.div>

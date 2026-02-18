@@ -11,17 +11,31 @@ function App() {
   return (
     <div className="bg-zinc-950 min-h-screen text-white">
       <Navbar />
-      <Hero />
-      <About />
-      <Stack />
-      <Projects />
-      <Contact />
+
+      <section id="inicio">
+        <Hero />
+      </section>
+
+      <section id="sobre-mi">
+        <About />
+      </section>
+
+      <section id="stack">
+        <Stack />
+      </section>
+
+      <section id="proyectos">
+        <Projects />
+      </section>
+
+      <section id="contacto">
+        <Contact />
+      </section>
+
       <Footer />
       <SocialSidebar />
     </div>
   )
 }
-
-
 
 export default App
