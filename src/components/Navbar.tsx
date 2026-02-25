@@ -13,7 +13,6 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  // Nav items con name y id para scroll suave
   const navItems = [
     { name: "Inicio", id: "inicio" },
     { name: "Sobre mí", id: "sobre-mi" },
@@ -21,73 +20,75 @@ const Navbar = () => {
     { name: "Contacto", id: "contacto" },
   ]
 
-  // Función para scroll suave
   const handleScrollTo = (id: string) => {
     const section = document.getElementById(id)
     section?.scrollIntoView({ behavior: "smooth" })
   }
 
   return (
-    <motion.div
-      className="fixed top-8 w-full z-50"
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-    >
-      <Container>
-        <motion.nav
-          className={`flex items-center justify-between h-16 md:h-20 px-6 md:px-10 rounded-full border transition-all duration-500
-                      backdrop-blur-lg backdrop-saturate-150
-                      ${scrolled ? "bg-white/10 border-white/20 shadow-xl" : "bg-white/20 border-white/10 shadow-lg"}`}
-        >
-          {/* Logo */}
-          <span className="text-white text-base font-semibold tracking-tight cursor-pointer hover:scale-105 transition-transform duration-300">
-            Francisco Aispuro
-          </span>
+    <>
+      {/* NAVBAR SOLO DESKTOP */}
+      <motion.div
+        className="fixed top-8 w-full z-40 hidden md:block"
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
+        <Container>
+          <motion.nav
+            className={`flex items-center justify-between h-20 px-10 rounded-full border transition-all duration-500
+              backdrop-blur-lg backdrop-saturate-150
+              ${scrolled ? "bg-white/10 border-white/20 shadow-xl" : "bg-white/20 border-white/10 shadow-lg"}`}
+          >
+            {/* Logo */}
+            <span
+              onClick={() => handleScrollTo("inicio")}
+              className="text-white text-base font-semibold tracking-tight cursor-pointer hover:scale-105 transition-transform duration-300"
+            >
+              Francisco Aispuro
+            </span>
 
-          {/* Links Desktop */}
-          <ul className="hidden md:flex items-center gap-14 text-sm uppercase tracking-wider">
-            {navItems.map((item, index) => (
-              <motion.li
-                key={item.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="relative group cursor-pointer"
-                onClick={() => handleScrollTo(item.id)}
-              >
-                <motion.span
-                  whileHover={{ y: -3, scale: 1.05 }}
-                  className="text-white transition-all duration-300 inline-block"
+            {/* Links Desktop */}
+            <ul className="flex items-center gap-14 text-sm uppercase tracking-wider">
+              {navItems.map((item, index) => (
+                <motion.li
+                  key={item.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  className="relative group cursor-pointer"
+                  onClick={() => handleScrollTo(item.id)}
                 >
-                  {item.name}
-                </motion.span>
-                <span
-                  className="absolute left-0 -bottom-2 w-0 h-[1.5px] bg-white
-                             transition-all duration-300 group-hover:w-full"
-                />
-              </motion.li>
-            ))}
-          </ul>
+                  <motion.span
+                    whileHover={{ y: -3, scale: 1.05 }}
+                    className="text-white transition-all duration-300 inline-block"
+                  >
+                    {item.name}
+                  </motion.span>
+                  <span className="absolute left-0 -bottom-2 w-0 h-[1.5px] bg-white transition-all duration-300 group-hover:w-full" />
+                </motion.li>
+              ))}
+            </ul>
+          </motion.nav>
+        </Container>
+      </motion.div>
 
-          {/* Hamburger Mobile */}
-          <div className="md:hidden flex items-center">
-            {!open && (
-              <motion.button
-                onClick={() => setOpen(true)}
-                className="text-white text-2xl focus:outline-none"
-                initial={false}
-                animate={{ scale: 1 }}
-                transition={{ duration: 0.3, ease: "easeOut" }}
-              >
-                <HiMenu />
-              </motion.button>
-            )}
-          </div>
-        </motion.nav>
-      </Container>
+      {/* HAMBURGUESA SOLO MOBILE (FIXED) */}
+      <div className="fixed top-6 right-6 z-50 md:hidden">
+        {!open && (
+          <motion.button
+            onClick={() => setOpen(true)}
+            className="text-white text-3xl bg-white/10 backdrop-blur-lg border border-white/20 p-3 rounded-full shadow-lg"
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.3 }}
+          >
+            <HiMenu />
+          </motion.button>
+        )}
+      </div>
 
-      {/* Mobile Fullscreen Menu */}
+      {/* MOBILE FULLSCREEN MENU */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -97,7 +98,7 @@ const Navbar = () => {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
           >
-            {/* Close Button (X animada) */}
+            {/* Close Button */}
             <motion.button
               onClick={() => setOpen(false)}
               className="absolute top-6 right-6 text-white text-3xl"
@@ -130,7 +131,7 @@ const Navbar = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.div>
+    </>
   )
 }
 

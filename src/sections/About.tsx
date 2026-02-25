@@ -25,7 +25,7 @@ const About = () => {
               transition={{ duration: 0.6 }}
               className="text-xs text-zinc-500 mb-6 tracking-[0.25em] uppercase"
             >
-              Sobre mí
+              About me
             </motion.p>
 
             <motion.h2

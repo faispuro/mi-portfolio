@@ -30,7 +30,7 @@ export const projects: Project[] = [
   title: "E-commerce",
   description:
     "Aplicación web de e-commerce de repuestos automotrices desarrollada como proyecto académico colaborativo con arquitectura full-stack. Mi aporte incluyó el desarrollo del frontend, diseño de la interfaz y validación de formularios.",
-  stack: ["HTML", "CSS", "JavaScript"],
+  stack: ["React", "Node.js", "Express", "SQL"],
   image: "projects/ecommerce.png",
   github: "https://github.com/Matias-ops-maker/Proyecto-Final-Integrador",
 }
