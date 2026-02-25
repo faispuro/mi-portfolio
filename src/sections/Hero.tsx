@@ -14,7 +14,7 @@ const Hero = () => {
       </div>
 
       <Container>
-        <div className="relative z-10 max-w-3xl">
+        <div className="relative z-10 max-w-3xl pt-20 md:pt-0">
 
           {/* Fade + slide animation para el subtítulo */}
           <motion.p
