@@ -19,7 +19,7 @@ export const techIcons: Record<string, React.ReactNode> = {
   Express: <SiExpress />,
   SQL: <SiPostgresql />,
 
-  // ✅ nuevos
+  //  nuevos
   HTML: <SiHtml5 />,
   CSS: <SiCss3 />,
   JavaScript: <SiJavascript />,
